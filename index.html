@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fidha Farook — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=Nunito:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="space-canvas"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- ════ LIGHTBOX ════ -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+  <div class="lightbox-inner" id="lightbox-inner"></div>
+</div>
+
+<!-- ════ NAV ════ -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">fidhafarook</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#posters">Posters</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certificates">Certs</a></li>
+    <li><a href="#forage">Forage</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section class="hero" id="home">
+  <div class="deco-star"    style="top:10%;left:6%">✦</div>
+  <div class="deco-star s2" style="top:16%;right:8%">✦</div>
+  <div class="deco-star s3" style="top:74%;left:5%;font-size:11px">✶</div>
+  <div class="deco-star"    style="bottom:20%;right:7%;font-size:10px">✦</div>
+  <div class="deco-star s3" style="top:42%;left:2%">✶</div>
+  <div class="deco-star s2" style="bottom:28%;left:10%">✦</div>
+  <svg style="position:absolute;top:13%;left:14%;opacity:.15;pointer-events:none;animation:starPulse 6s ease-in-out infinite" width="38" height="38" viewBox="0 0 38 38">
+    <path d="M19 1L21.5 16.5 37 19 21.5 21.5 19 37 16.5 21.5 1 19 16.5 16.5Z" fill="rgba(96,168,255,1)"/>
+  </svg>
+  <svg style="position:absolute;bottom:20%;right:12%;opacity:.11;pointer-events:none;animation:starPulse 9s ease-in-out infinite 1s" width="28" height="28" viewBox="0 0 28 28">
+    <path d="M14 1L16 12 27 14 16 16 14 27 12 16 1 14 12 12Z" fill="rgba(167,139,250,1)"/>
+  </svg>
+
+  <div class="orbital-system" id="orbital">
+    <div class="orbit-ring-wrap">
+      <svg class="ring-dot-ccw" viewBox="0 0 760 760" width="100%" height="100%" style="position:absolute;inset:0" fill="none">
+        <circle cx="380" cy="380" r="373" stroke="rgba(56,189,248,0.05)" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="orbit-ring-wrap">
+      <svg class="ring-txt-cw" viewBox="0 0 760 760" width="100%" height="100%" style="position:absolute;inset:0" fill="none">
+        <defs><path id="outerRingPath" d="M380,380 m-368,0 a368,368 0 1,1 736,0 a368,368 0 1,1 -736,0"/></defs>
+        <circle cx="380" cy="380" r="368" stroke="rgba(96,168,255,0.12)" stroke-width="0.8"/>
+        <text font-family="'DM Mono',monospace" font-size="13" fill="rgba(96,168,255,0.75)" letter-spacing="6">
+          <textPath href="#outerRingPath">PORTFOLIO · FIDHA FAROOK · DESIGNER · DEVELOPER · INTERFACE · POSTER DESIGN · PYTHON · KERALA · </textPath>
+        </text>
+        <circle cx="380" cy="12" r="3.5" fill="rgba(96,168,255,0.85)"/>
+        <circle cx="748" cy="380" r="2.5" fill="rgba(96,168,255,0.45)"/>
+        <circle cx="380" cy="748" r="2" fill="rgba(167,139,250,0.4)"/>
+        <circle cx="12" cy="380" r="2" fill="rgba(56,189,248,0.35)"/>
+      </svg>
+    </div>
+    <div class="orbit-ring-wrap">
+      <svg class="ring-txt-ccw" viewBox="0 0 760 760" width="100%" height="100%" style="position:absolute;inset:0" fill="none">
+        <defs><path id="innerRingPath" d="M380,380 m-290,0 a290,290 0 1,1 580,0 a290,290 0 1,1 -580,0"/></defs>
+        <circle cx="380" cy="380" r="290" stroke="rgba(167,139,250,0.1)" stroke-width="0.8" stroke-dasharray="3 8"/>
+        <text font-family="'DM Mono',monospace" font-size="11" fill="rgba(167,139,250,0.55)" letter-spacing="5">
+          <textPath href="#innerRingPath">CS STUDENT · CREATIVE TECH · 2025 · JYOTHI ENGINEERING · KERALA, INDIA · </textPath>
+        </text>
+        <circle cx="380" cy="90" r="3" fill="rgba(167,139,250,0.75)"/>
+        <circle cx="670" cy="380" r="2" fill="rgba(167,139,250,0.4)"/>
+        <circle cx="380" cy="670" r="2" fill="rgba(96,168,255,0.35)"/>
+        <circle cx="90" cy="380" r="2" fill="rgba(56,189,248,0.3)"/>
+      </svg>
+    </div>
+    <div class="orbit-ring-wrap">
+      <svg class="ring-dot-cw" viewBox="0 0 760 760" width="100%" height="100%" style="position:absolute;inset:0" fill="none">
+        <circle cx="380" cy="380" r="330" stroke="rgba(96,168,255,0.06)" stroke-width="1" stroke-dasharray="4 20"/>
+        <circle cx="380" cy="50" r="2.5" fill="rgba(96,168,255,0.5)"/>
+        <circle cx="710" cy="380" r="2" fill="rgba(96,168,255,0.3)"/>
+      </svg>
+    </div>
+    <div class="hero-centre">
+      <p class="hero-tag">CS Student &amp; Designer</p>
+      <h1 class="hero-name">Fidha<em>Farook</em></h1>
+      <p class="hero-sub">Kerala, India</p>
+    </div>
+  </div>
+
+  <p class="hero-desc">
+    <strong>CS student crafting interfaces, posters, and creative digital projects.</strong><br>
+    Building experiences that are both functional and visually thoughtful — from interface design and poster work to Python-based tools and collaborative tech projects.
+  </p>
+  <div class="hero-btns">
+    <a href="#work" class="btn-primary">View Work ↓</a>
+    <a href="#contact" class="btn-outline">Contact</a>
+  </div>
+</section>
+
+<svg class="wave-svg" viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="z-index:2;position:relative">
+  <path d="M0,32 C240,4 480,48 720,24 C960,0 1200,40 1440,16 L1440,48 L0,48 Z" fill="rgba(7,11,20,0.95)"/>
+  <path d="M0,32 C240,4 480,48 720,24 C960,0 1200,40 1440,16" stroke="rgba(80,160,255,0.15)" stroke-width="1" fill="none"/>
+</svg>
+
+<div class="ticker-band">
+  <div class="ticker-inner">
+    <span class="ticker-item">UI/UX Design <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Python Tools <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Figma <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Poster Design <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Android Dev <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Deep Learning <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Creative Coding <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Interface Design <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">UI/UX Design <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Python Tools <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Figma <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Poster Design <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Android Dev <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Deep Learning <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Creative Coding <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Interface Design <span class="ticker-sep">✦</span></span>
+  </div>
+</div>
+
+<!-- ════ WORK ════ -->
+<section id="work">
+  <p class="section-eyebrow reveal">Selected Work</p>
+  <h2 class="section-title reveal">Projects I'm <em>proud of</em></h2>
+  <p class="work-intro reveal">A mix of individual experiments and team builds — showing both my design eye and my technical side. Click any card to view demos and screenshots.</p>
+  <div class="projects-grid" id="projects-grid"></div>
+</section>
+
+<div class="highlight-band">
+  <div class="reveal">
+    <p class="highlight-label">Featured Deep Dive</p>
+    <h3 class="highlight-title">Neural NFT Validator —<br><em>Where AI Meets Interface</em></h3>
+  </div>
+  <div class="reveal" style="transition-delay:.1s">
+    <p class="highlight-desc">The most technically complex project — combining deep learning-based image similarity with a thoughtfully designed web interface. The challenge was turning complex AI outputs into something instantly readable.</p>
+    <div class="highlight-pills">
+      <span class="pill">Deep Learning</span>
+      <span class="pill">Image Similarity</span>
+      <span class="pill">Web Interface Design</span>
+      <span class="pill">Python</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════ POSTER GALLERY ════ -->
+<section id="posters">
+  <p class="section-eyebrow reveal">Poster Gallery</p>
+  <h2 class="section-title reveal">Design as <em>artwork</em></h2>
+  <p class="work-intro reveal">Event posters, typography experiments, and visual explorations. Click any poster to view full size.</p>
+  <div class="poster-grid" id="poster-grid"></div>
+  <div style="margin-top:20px;display:flex;justify-content:flex-end" class="reveal">
+    <p style="font-family:var(--sans);font-size:11px;color:var(--text-dim);letter-spacing:.06em;font-weight:600">Full gallery coming soon ↗</p>
+  </div>
+</section>
+
+<!-- ════ ABOUT ════ -->
+<section id="about">
+  <p class="section-eyebrow reveal">About Me</p>
+  <h2 class="section-title reveal">Meet <em>Fidha</em></h2>
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="about-photo-frame">
+        <div class="about-photo-inner">
+          <span class="about-initials">FF</span>
+        </div>
+        <span class="about-frame-tag">CS Student · Designer · Builder</span>
+      </div>
+      <div class="about-details" style="margin-top:36px">
+        <div class="about-detail"><span>📍</span><span>Jyothi Engineering College, Kerala</span></div>
+        <div class="about-detail"><span>🎓</span><span>B.Tech — Computer Science</span></div>
+        <div class="about-detail"><span>📅</span><span>Class of 2027</span></div>
+      </div>
+      <div class="about-social" style="margin-top:16px">
+        <a href="https://github.com/Fid-glitch" target="_blank" class="social-pill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/fidha-farook-018867343" target="_blank" class="social-pill">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn
+        </a>
+        <a href="https://instagram.com/fidshots" target="_blank" class="social-pill insta">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>Instagram
+        </a>
+      </div>
+      <div class="hobbies-row" style="margin-top:28px">
+        <span class="hobby-chip">🎨 Design</span>
+        <span class="hobby-chip h2">🚗 Driving</span>
+        <span class="hobby-chip h3">🎵 Singing</span>
+        <span class="hobby-chip h4">💻 Coding</span>
+        <span class="hobby-chip">✏️ Sketching</span>
+        <span class="hobby-chip h2">📸 Photography</span>
+      </div>
+    </div>
+    <div class="about-text reveal" style="transition-delay:.1s">
+      <h3>I sit between code and design — and I like it there.</h3>
+      <p>I'm a Computer Science student at Jyothi Engineering College who enjoys combining code and design in the same space. My work often lives at the intersection of technical problem-solving and visual communication — whether I'm designing an interface, building a Python tool, or creating posters for events.</p>
+      <p>I'm especially interested in interface design, creative websites, and projects that turn technical ideas into something people can easily understand and use. The best digital experiences are the ones where you can't tell where the engineering ends and the design begins.</p>
+      <p>When I'm not in front of a screen, I'm usually thinking about how to make the next thing I build feel a little more human.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SKILLS ════ -->
+<section id="skills">
+  <p class="section-eyebrow reveal">Skills</p>
+  <h2 class="section-title reveal">Tools of <em>the trade</em></h2>
+  <div class="skills-groups">
+    <div class="skills-group reveal">
+      <p class="skills-group-label">Code</p>
+      <div class="skills-tags">
+        <span class="skill-tag tag-code">Python</span><span class="skill-tag tag-code">Java</span>
+        <span class="skill-tag tag-code">C</span><span class="skill-tag tag-code">C++</span>
+        <span class="skill-tag tag-code">JavaScript</span><span class="skill-tag tag-code">HTML</span>
+      </div>
+    </div>
+    <div class="skills-group reveal" style="transition-delay:.08s">
+      <p class="skills-group-label">Design &amp; Editing</p>
+      <div class="skills-tags">
+        <span class="skill-tag tag-design">Figma</span>
+        <span class="skill-tag tag-design">Adobe Photoshop</span>
+        <span class="skill-tag tag-design">Adobe Lightroom</span>
+        <span class="skill-tag tag-design">Canva</span>
+        <span class="skill-tag tag-design">Photoroom</span>
+        <span class="skill-tag tag-design">Snapseed</span>
+      </div>
+    </div>
+    <div class="skills-group reveal" style="transition-delay:.16s">
+      <p class="skills-group-label">Tools &amp; Platforms</p>
+      <div class="skills-tags">
+        <span class="skill-tag tag-tools">GitHub</span>
+        <span class="skill-tag tag-tools">Android Studio</span>
+        <span class="skill-tag tag-tools">Google Colab</span>
+        <span class="skill-tag tag-tools">VS Code</span>
+        <span class="skill-tag tag-tools">Netlify</span>
+        <span class="skill-tag tag-tools">Notion</span>
+        <span class="skill-tag tag-tools">Claude</span>
+        <span class="skill-tag tag-tools">Gemini</span>
+        <span class="skill-tag tag-tools">ChatGPT</span>
+        <span class="skill-tag tag-tools">Perplexity</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ EXPERIENCE ════ -->
+<section id="experience">
+  <p class="section-eyebrow reveal">Experience</p>
+  <h2 class="section-title reveal">Where I've <em>shown up</em></h2>
+  <div class="exp-grid">
+    <div class="exp-card reveal">
+      <span class="exp-badge-pill badge-intern">Internship</span>
+      <p class="exp-year">Android Development</p>
+      <p class="exp-title">ICT Academy of Kerala</p>
+      <p class="exp-org">Contributed to the Jyothi 360 college utility app during an Android development internship.</p>
+    </div>
+    <div class="exp-card c2 reveal" style="transition-delay:.08s">
+      <span class="exp-badge-pill badge-event">Volunteer</span>
+      <p class="exp-year">Organizing &amp; Support</p>
+      <p class="exp-title">HackAthena</p>
+      <p class="exp-org">Volunteered in organizing and supporting the department's hackathon event.</p>
+    </div>
+    <div class="exp-card c3 reveal" style="transition-delay:.16s">
+      <span class="exp-badge-pill badge-award">Rank 8th</span>
+      <p class="exp-year">IIT Bombay</p>
+      <p class="exp-title">NEC '25</p>
+      <p class="exp-org">E-Cell JEC secured 8th rank at the National Entrepreneurship Challenge at IIT Bombay.</p>
+    </div>
+    <div class="exp-card c4 reveal" style="transition-delay:.24s">
+      <span class="exp-badge-pill badge-award">Rank 7th</span>
+      <p class="exp-year">IIT Madras</p>
+      <p class="exp-title">EDD at IIT Madras</p>
+      <p class="exp-org">E-Cell JEC secured 7th rank at EDD finals &amp; Entrepreneurship event at IIT Madras.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CERTIFICATES ════ -->
+<section id="certificates">
+  <p class="section-eyebrow reveal">Certificates</p>
+  <h2 class="section-title reveal">Earned &amp; <em>recognised</em></h2>
+  <p class="work-intro reveal">Click any certificate to view the full document.</p>
+  <div class="cert-grid" id="cert-grid"></div>
+</section>
+
+<!-- ════ FORAGE ════ -->
+<section id="forage">
+  <p class="section-eyebrow reveal">Forage</p>
+  <h2 class="section-title reveal">Job <em>simulations</em></h2>
+  <p class="work-intro reveal">Virtual work experience programs completed through Forage.</p>
+  <div class="cert-grid" id="forage-grid"></div>
+</section>
+
+<!-- ════ COURSERA PROJECTS ════ -->
+<section id="coursera-projects">
+  <p class="section-eyebrow reveal">Coursera</p>
+  <h2 class="section-title reveal">Project-based <em>certificates</em></h2>
+  <p class="work-intro reveal">Hands-on guided projects completed on Coursera.</p>
+  <div class="cert-grid" id="coursera-projects-grid"></div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section class="contact-section" id="contact">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;animation:spinCW 40s linear infinite;z-index:0">
+    <svg width="500" height="500" viewBox="0 0 500 500" fill="none">
+      <circle cx="250" cy="250" r="247" stroke="rgba(96,168,255,0.05)" stroke-dasharray="5 18"/>
+      <circle cx="250" cy="3" r="3" fill="rgba(96,168,255,0.35)"/>
+      <circle cx="497" cy="250" r="2" fill="rgba(167,139,250,0.25)"/>
+      <circle cx="3" cy="250" r="2" fill="rgba(56,189,248,0.2)"/>
+    </svg>
+  </div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;animation:spinCCW 28s linear infinite;z-index:0">
+    <svg width="320" height="320" viewBox="0 0 320 320" fill="none">
+      <circle cx="160" cy="160" r="157" stroke="rgba(167,139,250,0.07)" stroke-dasharray="3 14"/>
+      <circle cx="160" cy="3" r="2.5" fill="rgba(167,139,250,0.4)"/>
+      <circle cx="317" cy="160" r="2" fill="rgba(96,168,255,0.28)"/>
+    </svg>
+  </div>
+  <div style="position:relative;z-index:2">
+    <p class="section-eyebrow reveal" style="justify-content:center;display:flex">Get in Touch</p>
+    <h2 class="section-title reveal" style="text-align:center">Let's <em>build something</em></h2>
+    <p class="contact-tagline reveal">Open to internships and creative tech opportunities.</p>
+    <div class="contact-links reveal">
+      <a href="mailto:fidshots@gmail.com" class="contact-link primary">✉ Email Me</a>
+      <a href="https://github.com/Fid-glitch" target="_blank" class="contact-link gh">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/fidha-farook-018867343" target="_blank" class="contact-link li">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn
+      </a>
+      <a href="https://instagram.com/fidshots" target="_blank" class="contact-link insta">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>Instagram
+      </a>
+    </div>
+    <p class="contact-open reveal"><span class="contact-open-dot"></span>Available for opportunities</p>
+    <p class="contact-open reveal" style="font-size:10px;margin-top:16px;max-width:560px;margin-left:auto;margin-right:auto;opacity:.5">
+      Disclaimer: This website is a personal project and does not represent any official affiliation with institutions or organisations mentioned herein.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="yr"></span> Fidha Farook</p>
+  <p>CS Student · Designer · Builder</p>
+</footer>
+
+<!-- ════ ASSET DIAGNOSTIC PANEL ════ -->
+<button id="diag-toggle" aria-label="Check asset paths">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+  Check Assets
+</button>
+<div id="diag-panel"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
